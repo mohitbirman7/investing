@@ -1,0 +1,251 @@
+:root {
+  --bg: #06100d;
+  --s: #0c1814;
+  --line: #1b2e27;
+  --tx: #eef5f1;
+  --mu: #86a095;
+  --ac: #2fe0a0;
+  --up: #2fe0a0;
+  --dn: #ff7a85;
+  --serif: "Cormorant Garamond", Georgia, serif;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  min-height: 100vh;
+  font-family: 'Inter', system-ui, sans-serif;
+  font-weight: 300;
+  background-color: var(--bg);
+  color: var(--tx);
+  overflow-x: hidden;
+  line-height: 1.65;
+  background-image: 
+    radial-gradient(700px 420px at 85% -4%, rgba(47, 224, 160, 0.13), transparent),
+    radial-gradient(500px 360px at 0 22%, rgba(47, 224, 160, 0.06), transparent);
+}
+
+.wrap {
+  max-width: 1160px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 12px 24px;
+  border: 1px solid var(--line);
+  background: transparent;
+  color: var(--tx);
+  font-size: 14px;
+  font-weight: 500;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.btn:hover {
+  border-color: var(--ac);
+  color: var(--ac);
+  transform: translateY(-2px);
+}
+
+.btn.pri {
+  background: var(--ac);
+  border-color: var(--ac);
+  color: #04130d;
+}
+
+.btn.pri:hover {
+  background: #5cf0bb;
+  box-shadow: 0 10px 30px rgba(47, 224, 160, 0.2);
+}
+
+header {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  background: rgba(6, 16, 13, 0.92);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--line);
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 70px;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--serif);
+  font-size: 26px;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  color: var(--tx);
+  text-decoration: none;
+}
+
+.nav-links {
+  display: flex;
+  gap: 30px;
+  font-size: 14px;
+}
+
+.nav-links a {
+  color: var(--mu);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.nav-links a:hover {
+  color: var(--tx);
+}
+
+.ticker {
+  overflow: hidden;
+  white-space: nowrap;
+  border-bottom: 1px solid var(--line);
+  padding: 10px 0;
+  font-size: 12px;
+  color: var(--mu);
+}
+
+.track {
+  display: inline-flex;
+  gap: 44px;
+  animation: scroll-ticker 40s linear infinite;
+}
+
+@keyframes scroll-ticker {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.up { color: var(--up); }
+.dn { color: var(--dn); }
+
+.hero {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 56px;
+  align-items: center;
+  padding: 80px 0 70px;
+}
+
+.hero h1 {
+  font-family: var(--serif);
+  font-weight: 500;
+  font-size: clamp(40px, 6vw, 76px);
+  line-height: 1.05;
+  margin: 20px 0;
+}
+
+.hero h1 em {
+  font-style: italic;
+  color: var(--ac);
+}
+
+.hero p.lead {
+  color: var(--mu);
+  font-size: 17px;
+  max-width: 520px;
+  margin-bottom: 30px;
+}
+
+.panel {
+  border: 1px solid var(--line);
+  background: linear-gradient(160deg, #0f1f19, #0a1511);
+  border-radius: 20px;
+  padding: 24px;
+}
+
+.wr {
+  display: grid;
+  grid-template-columns: 1fr 70px 90px;
+  gap: 14px;
+  align-items: center;
+  padding: 14px 0;
+  border-top: 1px solid var(--line);
+}
+
+.bento {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 16px;
+  margin-top: 30px;
+}
+
+.tile {
+  grid-column: span 2;
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  padding: 26px;
+  background: var(--s);
+}
+
+.tile.w {
+  grid-column: span 3;
+}
+
+.tile h4 {
+  font-family: var(--serif);
+  font-size: 26px;
+  margin: 8px 0;
+}
+
+.tile p {
+  color: var(--mu);
+  font-size: 14px;
+}
+
+.ov {
+  position: fixed;
+  inset: 0;
+  z-index: 50;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.85);
+  backdrop-filter: blur(6px);
+}
+
+.modal {
+  width: 100%;
+  max-width: 400px;
+  background: var(--s);
+  border: 1px solid var(--line);
+  padding: 32px;
+  position: relative;
+  border-radius: 16px;
+}
+
+.modal input {
+  width: 100%;
+  padding: 10px 0;
+  border: none;
+  border-bottom: 1px solid var(--line);
+  background: transparent;
+  color: var(--tx);
+  outline: none;
+  margin-bottom: 15px;
+}
+
+.modal input:focus {
+  border-color: var(--ac);
+}
+
+@media (max-width: 860px) {
+  .hero { grid-template-columns: 1fr; }
+  .tile, .tile.w { grid-column: span 6; }
+}
